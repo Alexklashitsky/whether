@@ -5,6 +5,7 @@ import axios from 'axios';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { submitSearch } from '../pages/weather'
+import PropTypes from 'prop-types';
 const API = 'yQdQ6vhYlcGgDHKkCHVzHbIKguqkZiZK'
 const URL = 'http://dataservice.accuweather.com/locations/v1/cities/autocomplete'
 
@@ -62,4 +63,7 @@ export function Test({ submitSearch }) {
     )
 }
 
+// Test.PropTypes = {
+//     submitSearch: PropTypes.func.isRequired
+// }
 
