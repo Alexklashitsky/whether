@@ -2,16 +2,28 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { AutoComplete } from '../cmps/autoComplete.jsx'
 import { Test } from '../cmps/test'
-class _Weather extends React.Component {
+import useForecast from '../hooks/use.forecast'
+function _Weather() {
 
-    render() {
-        return (
-            <section>
-                <h2>Weather page</h2>
-                <Test />
-            </section>
-        )
+
+
+    const { isErr, isLoading, forecast, submitReq } = useForecast()
+    const onSubmit = (value) => {
+        submitReq(value)
     }
+
+    return (
+        <section>
+            <h2>Weather page</h2>
+            <div>
+                <Test submitSearch={onSubmit} />
+                {isErr && 'error'}
+                {isLoading && 'loading'}
+            </div>
+            {forecast && 'forcast'}
+        </section>
+    )
+
 
 }
 

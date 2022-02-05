@@ -4,16 +4,18 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import { submitSearch } from '../pages/weather'
 const API = 'yQdQ6vhYlcGgDHKkCHVzHbIKguqkZiZK'
 const URL = 'http://dataservice.accuweather.com/locations/v1/cities/autocomplete'
 
-export function Test() {
+export function Test({ submitSearch }) {
     const [loc, setLoc] = useState('')
 
     const Form = () => {
-        // const [loc, setLoc] = useState('BERLIN')
+        const [loc, setLoc] = useState('')
         const onSubmit = (e) => {
             e.preventDefault()
+            if (!loc || loc === '') return
 
             console.log('submit');
 
@@ -27,6 +29,7 @@ export function Test() {
         e.preventDefault()
         console.log('loc:', loc);
         if (!loc || loc === '') return
+        submitSearch(loc)
 
 
         console.log('submit');
