@@ -1,10 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { AutoComplete } from '../cmps/autoComplete.jsx'
+import { Test } from '../cmps/test'
 class _Weather extends React.Component {
 
     render() {
         return (
-            <h2>Weather page</h2>
+            <section>
+                <h2>Weather page</h2>
+                <Test />
+            </section>
         )
     }
 
